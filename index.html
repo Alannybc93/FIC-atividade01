@@ -1,0 +1,74 @@
+// ...existing code...
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Nome | Portfólio</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="assets/favicon.ico" rel="icon" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="index.html">Alanny Barbosa Cavalcante</a>
+        <nav class="nav" id="nav">
+          <a href="index.html">Home</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+    </header>
+
+    <section class="hero container" id="hero">
+      <div class="hero-text">
+        <h1>Olá — Eu sou <span>Alanny Barbosa Cavalcante</span></h1>
+        <p>Desenvolvedora · Estudante de Sistemas para Internet · Gamer &amp; Musicista</p>
+        <div class="cta">
+          <a class="btn" href="sobre.html">Sobre</a>
+          <a class="btn btn-outline" href="contato.html">Contato</a>
+        </div>
+        <div class="social">
+          <!-- Troque os links -->
+          <a aria-label="GitHub" href="#">GitHub</a>
+          <a aria-label="LinkedIn" href="#">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img alt="Foto de perfil de Alanny Barbosa Cavalcante" src="assets/img/perfil.jpg" />
+      </div>
+    </section>
+
+    <section class="projetos container" id="projetos">
+      <h2>Projetos</h2>
+      <div class="grid-projetos">
+        <article class="card">
+          <img alt="Projeto 1" src="assets/img/projeto1.jpg" />
+          <h3>Projeto 1</h3>
+          <p>Breve descrição do projeto.</p>
+          <a class="btn-small" href="#">Ver projeto</a>
+          <a class="btn-small" download="projeto1.jpg" href="assets/img/projeto1.jpg">Baixar foto</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="contato container" id="contato">
+      <h2>Contato</h2>
+      <p>
+        Quer conversar? Me mande um e-mail:
+        <a href="mailto:seu@email.com">seu@email.com</a>
+      </p>
+      <a class="btn" href="contato.html">Formulário</a>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="ano"></span> Alanny Barbosa Cavalcante — Portfólio</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

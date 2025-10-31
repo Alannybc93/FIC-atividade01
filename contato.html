@@ -1,0 +1,55 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>Contato | Alanny Barbosa Cavalcante</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="logo" href="index.html">Alanny Barbosa Cavalcante</a>
+        <nav class="nav" id="nav">
+          <a href="index.html">Home</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="menu-btn" id="menuBtn">☰</button>
+      </div>
+    </header>
+
+    <main class="container contato-page">
+      <h1>Contato</h1>
+      <form class="form" id="contactForm">
+        <label for="name">Nome</label>
+        <input id="name" required="" type="text" />
+
+        <label for="email">E-mail</label>
+        <input id="email" required="" type="email" />
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" required="" rows="6"></textarea>
+
+        <input accept="image/*" id="photo" type="file" />
+        <label for="photo">Enviar uma foto</label>
+
+        <button class="btn" type="submit">Enviar</button>
+      </form>
+
+      <p>
+        Ou me encontre nas redes:
+        <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="ano3"></span> Alanny Barbosa Cavalcante — Portfólio</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
