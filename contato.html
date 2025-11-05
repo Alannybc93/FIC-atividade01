@@ -1,55 +1,565 @@
-// ...existing code...
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <title>Contato | Alanny Barbosa Cavalcante</title>
-    <link href="css/style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container">
-        <a class="logo" href="index.html">Alanny Barbosa Cavalcante</a>
-        <nav class="nav" id="nav">
-          <a href="index.html">Home</a>
-          <a href="sobre.html">Sobre</a>
-          <a href="contato.html">Contato</a>
-        </nav>
-        <button class="menu-btn" id="menuBtn">☰</button>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Alanny Barbosa Cavalcante</title>
+  <style>
+    /* Reset e variáveis */
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #5a52d5;
+      --secondary: #FF6584;
+      --dark: #2A2D43;
+      --light: #F7F9FC;
+      --gray: #8C8C8C;
+      --gray-light: #E5E5E5;
+      --white: #FFFFFF;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header */
+    .site-header {
+      background-color: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .site-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 15px;
+    }
+    
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav a {
+      font-weight: 500;
+      position: relative;
+      transition: var(--transition);
+    }
+    
+    .nav a:hover {
+      color: var(--primary);
+    }
+    
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .nav a:hover::after {
+      width: 100%;
+    }
+    
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* Main Content */
+    main {
+      padding: 3rem 0;
+      min-height: calc(100vh - 140px);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+      position: relative;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Form Styles */
+    .form {
+      max-width: 600px;
+      margin: 2rem 0;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form input,
+    .form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--gray-light);
+      border-radius: 5px;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    
+    .form input:focus,
+    .form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+    }
+    
+    .form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    /* File Input Styling */
+    .file-input-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    
+    .file-input-container input[type="file"] {
+      position: absolute;
+      left: -9999px;
+    }
+    
+    .file-input-container label {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--gray-light);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .file-input-container label:hover {
+      background-color: #d5d5d5;
+    }
+    
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    .btn-small {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .site-footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    /* Hero Section (para página inicial) */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 0;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-text h1 span {
+      color: var(--primary);
+    }
+    
+    .hero-img {
+      flex: 1;
+      text-align: center;
+    }
+    
+    .hero-img img {
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      max-width: 400px;
+    }
+    
+    .cta {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .social {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social a {
+      padding: 0.5rem 1rem;
+      background-color: var(--gray-light);
+      border-radius: 5px;
+      transition: var(--transition);
+    }
+    
+    .social a:hover {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+    
+    /* Projects Section */
+    .grid-projetos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    
+    .card p {
+      margin-bottom: 1rem;
+      color: var(--gray);
+    }
+    
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    /* About Page */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    
+    .sobre-grid img {
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .sobre-grid ul {
+      margin: 1rem 0;
+    }
+    
+    .sobre-grid li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .sobre-grid li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    /* Contact Page */
+    .contato-page p {
+      margin: 1.5rem 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .cta {
+        justify-content: center;
+      }
+      
+      .sobre-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+      
+      .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+      
+      .nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .nav a {
+        padding: 0.75rem 0;
+      }
+      
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      
+      .grid-projetos {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .cta {
+        flex-direction: column;
+      }
+      
+      .card-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Alanny Barbosa Cavalcante</a>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
 
-    <main class="container contato-page">
-      <h1>Contato</h1>
-      <form class="form" id="contactForm">
-        <label for="name">Nome</label>
-        <input id="name" required="" type="text" />
+  <main class="container contato-page">
+    <h1>Contato</h1>
+    <form class="form" id="contactForm">
+      <label for="name">Nome</label>
+      <input id="name" required type="text" />
 
-        <label for="email">E-mail</label>
-        <input id="email" required="" type="email" />
+      <label for="email">E-mail</label>
+      <input id="email" required type="email" />
 
-        <label for="message">Mensagem</label>
-        <textarea id="message" required="" rows="6"></textarea>
+      <label for="message">Mensagem</label>
+      <textarea id="message" required rows="6"></textarea>
 
+      <div class="file-input-container">
         <input accept="image/*" id="photo" type="file" />
         <label for="photo">Enviar uma foto</label>
-
-        <button class="btn" type="submit">Enviar</button>
-      </form>
-
-      <p>
-        Ou me encontre nas redes:
-        <a href="#">GitHub</a> · <a href="#">LinkedIn</a>
-      </p>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="ano3"></span> Alanny Barbosa Cavalcante — Portfólio</p>
       </div>
-    </footer>
 
-    <script src="js/script.js"></script>
-  </body>
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+
+    <p>
+      Ou me encontre nas redes:
+      <a href="https://github.com/Alannybc93" target="_blank">GitHub</a> · 
+      <a href="https://linkedin.com/in/alanny-barbosa-cavalcante" target="_blank">LinkedIn</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="currentYear"></span> Alanny Barbosa Cavalcante — Portfólio</p>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('nav');
+    
+    if (menuBtn && nav) {
+      menuBtn.addEventListener('click', () => {
+        nav.classList.toggle('active');
+      });
+    }
+    
+    // Atualizar ano no footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Validação do formulário
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validação básica
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        if (name && email && message) {
+          // Simulação de envio
+          alert('Mensagem enviada com sucesso! Em breve entrarei em contato.');
+          contactForm.reset();
+        } else {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+        }
+      });
+    }
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (nav.classList.contains('active')) {
+          nav.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
 </html>
